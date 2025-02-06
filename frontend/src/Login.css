@@ -1,0 +1,65 @@
+/* LoginPage.css */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .login-container h1 {
+    margin-bottom: 1rem;
+    color: #4CAF50;
+  }
+  
+  .login-container p {
+    margin-bottom: 2rem;
+    color: #555;
+  }
+  
+  .login-options {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .login-options a {
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-student {
+    background-color: #2196F3;
+  }
+  
+  .btn-student:hover {
+    background-color: #1976D2;
+  }
+  
+  .btn-teacher {
+    background-color: #4CAF50;
+  }
+  
+  .btn-teacher:hover {
+    background-color: #45A049;
+  }
+  

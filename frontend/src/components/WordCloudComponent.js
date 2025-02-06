@@ -77,7 +77,7 @@ const WordCloudComponent = () => {
     });
   }, [words]);
 
-  return <canvas ref={canvasRef} width={1130} height={400} style={{ border: '1px solid #ddd' }} />;
+  return <canvas ref={canvasRef} width={918} height={400} style={{ border: '1px solid #ddd' }} />;
 };
 
 export default WordCloudComponent;

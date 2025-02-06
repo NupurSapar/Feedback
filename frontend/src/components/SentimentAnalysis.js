@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import { PieChart, Pie, Cell } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 const mockPieData = [
   { name: 'Positive', value: 70 },
@@ -8,29 +8,29 @@ const mockPieData = [
   { name: 'Negative', value: 10 },
 ];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+const COLORS = ['#FFDB5C', '#A0C878', '#B7E0FF'];
 
 const SentimentAnalysis = () => {
   return (
-    <Card>
-      <CardContent>
+    <Card sx={{ height: 250, overflow: 'visible' }}> {/* Prevents clipping */}
+      <CardContent sx={{ textAlign: 'center', p: 1 }}> {/* Reduces padding */}
         <Typography variant="h6">Sentiment Analysis</Typography>
-        <PieChart width={450} height={200}>
-          <Pie
-            data={mockPieData}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-            label={(entry) => `${entry.name}: ${entry.value}%`}
-          >
-            {mockPieData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-        </PieChart>
+        <ResponsiveContainer width="100%" height={180}> {/* Increased height for full visibility */}
+          <PieChart>
+            <Pie
+              data={mockPieData}
+              cx="50%"
+              cy="50%"
+              outerRadius={70} /* Increased radius for better fit */
+              dataKey="value"
+              label
+            >
+              {mockPieData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
       </CardContent>
     </Card>
   );

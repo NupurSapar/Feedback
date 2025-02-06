@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Card, CardContent, Typography, Button, Box } from '@mui/material';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const StarRatingsGraph = () => {
   const [timePeriod, setTimePeriod] = useState('month');
 
-  // Sample data for the different time periods
   const data = {
     month: [
       { rating: '5 stars', count: 20 },
@@ -30,48 +29,45 @@ const StarRatingsGraph = () => {
     ],
   };
 
-  // Handle toggle between time periods
-  const handleToggle = (period) => {
-    setTimePeriod(period);
-  };
-
   return (
-    <Card>
-      <CardContent>
+    <Card sx={{ height: 250, overflow: 'visible' }}> {/* Prevents clipping */}
+      <CardContent sx={{ textAlign: 'center', p: 1 }}> {/* Reduces padding */}
         <Typography variant="h6">Star Ratings</Typography>
-
-        {/* Toggle Buttons */}
-        <Box my={1}>
-          <Button
-            variant={timePeriod === 'month' ? 'contained' : 'outlined'}
-            onClick={() => handleToggle('month')}
-            sx={{ marginRight: 2 }}
+        <Box my={1} display="flex" justifyContent="center">
+          <Button 
+            size="small" 
+            variant={timePeriod === 'month' ? 'contained' : 'outlined'} 
+            onClick={() => setTimePeriod('month')} 
+            sx={{ mx: 0.3, minWidth: 40 }} 
           >
-            Last Month
+            1M
           </Button>
-          <Button
-            variant={timePeriod === 'sixMonths' ? 'contained' : 'outlined'}
-            onClick={() => handleToggle('sixMonths')}
-            sx={{ marginRight: 2 }}
+          <Button 
+            size="small" 
+            variant={timePeriod === 'sixMonths' ? 'contained' : 'outlined'} 
+            onClick={() => setTimePeriod('sixMonths')} 
+            sx={{ mx: 0.3, minWidth: 40 }} 
           >
-            Last 6 Months
+            6M
           </Button>
-          <Button
-            variant={timePeriod === 'year' ? 'contained' : 'outlined'}
-            onClick={() => handleToggle('year')}
+          <Button 
+            size="small" 
+            variant={timePeriod === 'year' ? 'contained' : 'outlined'} 
+            onClick={() => setTimePeriod('year')} 
+            sx={{ mx: 0.3, minWidth: 40 }} 
           >
-            Last Year
+            1Y
           </Button>
         </Box>
-
-        {/* Bar Graph */}
-        <BarChart width={450} height={150} data={data[timePeriod]}>
-          <XAxis dataKey="rating" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="count" fill="#0088FE" />
-        </BarChart>
+        <ResponsiveContainer width="100%" height={140}> {/* Increased height slightly */}
+          <BarChart data={data[timePeriod]}>
+            <XAxis dataKey="rating" />
+            <YAxis padding={{ top: 10 }} /> {/* Adds spacing at the top */}
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="count" fill="#A0C878" />
+          </BarChart>
+        </ResponsiveContainer>
       </CardContent>
     </Card>
   );

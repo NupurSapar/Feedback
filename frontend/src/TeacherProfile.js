@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, AppBar, Toolbar, Typography, IconButton, Drawer, Avatar, Card, Grid, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
-import Sidebar from './components/Sidebar'; // ✅ Using YOUR Sidebar Component
+import Sidebar from './Sidebar'; // ✅ Using YOUR Sidebar Component
 
 const TeacherProfile = () => {
   const [open, setOpen] = useState(false);

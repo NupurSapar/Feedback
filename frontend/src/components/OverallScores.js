@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const mockBarData = [
   { category: 'Engagement', score: 65 },
@@ -10,18 +10,20 @@ const mockBarData = [
 
 const OverallScores = () => {
   return (
-    <Card>
-      <CardContent>
+    <Card sx={{ height: 250, overflow: 'visible' }}> {/* Prevents clipping */}
+      <CardContent sx={{ textAlign: 'center', p: 1 }}> {/* Reduces padding */}
         <Typography variant="h6" gutterBottom>
           Overall Feedback Scores
         </Typography>
-        <BarChart width={400} height={200} data={mockBarData}> {/* Reduced chart size */}
-          <XAxis dataKey="category" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="score" fill="#8884d8" />
-        </BarChart>
+        <ResponsiveContainer width="100%" height={180}> {/* Increased height for better fit */}
+          <BarChart data={mockBarData}>
+            <XAxis dataKey="category" />
+            <YAxis padding={{ top: 10 }} /> {/* Adds spacing at the top */}
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="score" fill="#6A9AB0" />
+          </BarChart>
+        </ResponsiveContainer>
       </CardContent>
     </Card>
   );

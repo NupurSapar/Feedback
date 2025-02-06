@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, AppBar, Toolbar, Typography, IconButton, Drawer, Card, CardContent, Grid, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Sidebar from './components/Sidebar';
+import Sidebar from './Sidebar';
 
 const mockPostedForms = [
   { id: 1, title: 'Course Feedback', postedOn: '2023-12-01' },
@@ -27,7 +27,7 @@ const PastForms = () => {
           <IconButton color="inherit" edge="start" onClick={toggleDrawer(true)} sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5">Teacher Feedback Dashboard</Typography>
+          <Typography variant="h5">Past Forms</Typography>
         </Toolbar>
       </AppBar>
 

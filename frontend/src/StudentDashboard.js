@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, AppBar, Toolbar, Typography, IconButton, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Sidebar from './components/Sidebar';
+import Sidebar from './Sidebar';
 import MainContent2 from './components/MainContent2';
 
 const StudentDashboard = () => {
@@ -14,7 +14,7 @@ const StudentDashboard = () => {
   return (
     <Box>
       {/* Top Navigation Bar */}
-      <AppBar position="sticky">
+      <AppBar position="sticky" sx={{ bgcolor: '#FFDB5C' }}>
         <Toolbar>
           <IconButton color="inherit" edge="start" onClick={toggleDrawer(true)} sx={{ mr: 2 }}>
             <MenuIcon />

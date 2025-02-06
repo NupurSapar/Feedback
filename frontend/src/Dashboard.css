@@ -1,0 +1,29 @@
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto; /* Pushes to the right */
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .username {
+    font-weight: bold;
+    color: white;
+  }
+  
+  .email {
+    color: #ccc;
+    font-size: 0.85rem;
+  }
+  

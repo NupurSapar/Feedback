@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Feedback Collection & Analysis System</title>
+    <link rel="stylesheet" href="LandingPage.css">
+    <script defer src="LandingPage.js"></script>
+    <style>
+        body {
+            cursor: none;
+        }
+        .cursor {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: cyan;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+            transition: transform 0.1s ease-out;
+        }
+        .trail {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(0, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 5px cyan;
+            transition: transform 0.15s ease-out;
+        }
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+        }
+        .hero-video {
+            border-radius: 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(1);
+        }
+        .hero-text {
+            z-index: 1;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        /* Scrollable Cards */
+        .scrollable-cards {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 20px;
+        }
+        .card {
+            background: #A0C878;
+            padding: 15px;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        /* Benefits Section */
+        .benefits {
+            padding: 50px 20px;
+            background: #DDEB9D;
+            color: #1e293b;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <header>
+        <h1 class="logo">Teacher Feedback Collection & Analysis</h1>
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#future">Future Enhancements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="overview" class="hero-section">
+        <div class="hero-content">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="LandingPageVid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section id="features" class="animated-section">
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-item">Secure User Registration & Authentication</div>
+            <div class="feature-item">Custom Feedback Form Creation (MCQs & Comments)</div>
+            <div class="feature-item">Advanced Response Evaluation & Scoring</div>
+            <div class="feature-item">Confidence Score Calculation System (CSCS)</div>
+            <div class="feature-item">Teacher Dashboard & Data Visualization</div>
+            <div class="feature-item">ML-Based Personalized Recommendations</div>
+        </div>
+    </section>
+
+    <section id="tech-stack" class="animated-section">
+        <h2>Technical Stack</h2>
+        <div>
+            <img src="_- visual selection (2).png" alt="Tech Stack Diagram" style="width:100%; width:1000px; margin:auto; display:block;">
+        </div>
+    </section>
+
+    <section id="response-evaluation" class="animated-section">
+        <h2>Response Evaluation</h2>
+        <div class="scrollable-cards">
+            <div class="card">MCQ-Based Responses (Likert scale)</div>
+            <div class="card">Comment-Based Responses sentiment scores (1-5)</div>
+            <div class="card">Final Score Calculation</div>
+            <div class="card">Evaluation Metric 4</div>
+        </div>
+    </section>
+
+    <section id="ml-models" class="animated-section">
+        <h2>ML Models & Confidence Score System</h2>
+        <div class="scrollable-cards">
+            <div class="card">BERT-Based Model</div>
+            <div class="card">LSTM-Based Analysis</div>
+            <div class="card">VADER Sentiment Analysis</div>
+            <div class="card">Confidence Score Visualization</div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <h2>Benefits</h2>
+        <ul>
+            <li>Data-Driven Decision Making for Institutions</li>
+            <li>Enhanced Teacher Performance Monitoring</li>
+            <li>Efficient Feedback Management</li>
+        </ul>
+    </section>
+
+    <section id="future" class="animated-section">
+        <h2>Future Enhancements</h2>
+        <ul>
+            <li>Integration with Learning Management Systems (LMS) like Moodle & Blackboard</li>
+            <li>AI-Based Adaptive Questioning for dynamic feedback forms</li>
+            <li>Gamification features to boost student engagement</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Teacher Feedback Analysis. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.classList.add('trail');
+            document.body.appendChild(trail);
+            trail.style.left = `${e.pageX}px`;
+            trail.style.top = `${e.pageY}px`;
+            setTimeout(() => {
+                trail.remove();
+            }, 200);
+        });
+    </script>
+</body>
+</html>
